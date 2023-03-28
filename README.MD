@@ -2,19 +2,27 @@
 
 O Z-Shell muito conhecido como ZSH é um interpretador de comando UNIX que oferece vários recursos que podem facilitar muito a vida de que utiliza a linha de comando.
 
-Para instalar o ZSH no ubuntu basta executar o comando abaixo no terminal
+Para facilitar a instalação e configuração, fiz um script shell para instalar o `zsh` e o framework `oh-my-zsh` assim como alguns plugins. Para executar o script basta clonar esse repositório e executar o arquivo `install-zsh.sh` conforme abaixo
+
+```
+./install-zsh.sh
+```
+
+Caso queira realizar o processo de instalação manualmente basta seguir os seguintes passos
+
+Instalar o `zsh` 
 
 ```
 sudo apt install -y zsh
 ```
 
-Após ter instalado o zsh é necessário instalar o framework oh-my-zsh Utilizando `curl`basta executar
+Instalar o framework oh-my-zsh Utilizando `curl`
 
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-Posteriormente basta tornar o ZSH o shell padrão do Ubuntu com o comando abaixo. Para que assim, toda vez que o terminal for aberto já seja executado o zsh ao invés do bash.
+Tornar o ZSH o shell padrão do Ubuntu. Para que assim, toda vez que o terminal for aberto já seja executado o zsh ao invés do bash.
 
 ```
 chsh -s $(which zsh)
@@ -22,11 +30,11 @@ chsh -s $(which zsh)
 
 ## Adicionando plugins
 
-Podemos adicionar vários puglins no zsh e esses podem potencializar o uso do shell. Nesse caso, utilizaremos os pluins de syntax highlighting e authsuggestions.
+Apśo instalação do zsh e do oh-my-zsh podemos adicionar vários puglins para potencializar o uso do shell. Por exemplo os pluins zsh syntax highlighting e zsh autosuggestions.
 
 ### zsh-autosuggestions & zsh-syntax-highlighting
 
-Primeiro fazemos o download dos plugins usando `git` e colocamos os arquivos na posta de plugins do oh-my-zsh `${ZSH_CUSTOM}/pugins`
+Para instalar os plugins é necessário fazer o download usando `git` na pasta de plugins do oh-my-zsh `${ZSH_CUSTOM}/pugins`
 
 ```
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
@@ -36,7 +44,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/cust
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 ```
 
-Após é isso necessário ativar os plugins no arquivo `.zshrc` e adicionando os plugins em
+Posteriormente basta ativar os plugins no arquivo `.zshrc` adicionando-os em
 
 ```
 plugins=(
