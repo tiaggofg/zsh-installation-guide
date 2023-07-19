@@ -1,11 +1,11 @@
-# Guia de instalação do ZSH no Ubuntu
+# Guia de instalação do ZSH
 
-O Z-Shell muito conhecido como ZSH é um interpretador de comando UNIX que oferece vários recursos que podem facilitar muito a vida de que utiliza a linha de comando.
+O Z-Shell muito conhecido como ZSH é um interpretador de comandos UNIX que oferece vários recursos facilatam muito a vida de quem utiliza a linha de comando.
 
-Para facilitar a instalação e configuração, fiz um script shell para instalar o `zsh` e o framework `oh-my-zsh` assim como alguns plugins. Para executar o script basta clonar esse repositório e executar o arquivo `install-zsh.sh` conforme abaixo
+Para economizar tempo durante a instalação e configuração, fiz um script shell para instalar o `zsh` e o framework `oh-my-zsh` assim como alguns plugins. O script também irá realizar a instalação do tema Starship e da fonte firacode. Para executar o script basta clonar esse repositório e executar o arquivo `install-zsh.sh` conforme abaixo.
 
 ```
-./install-zsh.sh
+$ ./install-zsh.sh
 ```
 
 Caso queira realizar o processo de instalação manualmente basta seguir os seguintes passos
@@ -13,19 +13,19 @@ Caso queira realizar o processo de instalação manualmente basta seguir os segu
 Instalar o `zsh` 
 
 ```
-sudo apt install -y zsh
+$ sudo apt install -y zsh
 ```
 
 Instalar o framework oh-my-zsh Utilizando `curl`
 
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
 Tornar o ZSH o shell padrão do Ubuntu. Para que assim, toda vez que o terminal for aberto já seja executado o zsh ao invés do bash.
 
 ```
-chsh -s $(which zsh)
+$ chsh -s $(which zsh)
 ```
 
 ## Adicionando plugins
@@ -37,11 +37,11 @@ Apśo instalação do zsh e do oh-my-zsh podemos adicionar vários puglins para 
 Para instalar os plugins é necessário fazer o download usando `git` na pasta de plugins do oh-my-zsh `${ZSH_CUSTOM}/pugins`
 
 ```
-git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+$ git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 ```
 
 ```
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 ```
 
 Posteriormente basta ativar os plugins no arquivo `.zshrc` adicionando-os em
@@ -54,26 +54,27 @@ plugins=(
 )
 ```
 
-### Spaceship prompt theme
+### Starship theme
 
-Além dos plugins gosto de utilizar o tema Spasechip. Pois gosto bastante de sua integração com os plugins.
+Além dos plugins uso também o tema Starship. Pois gosto bastante de sua integração com os plugins.
 
-Para instalar esse tema é preciso clonar o projeto para a pasta de temas do framework oh-my-zsh `${ZSH_CUSTOM}/themes`
-
-```
-git clone https://github.com/spaceship-prompt/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
-```
-
-E criar um link simbólico para o arquivo `spaceship.zsh-theme` na pasta de temas do oh-my-zsh.
+A instalação é realizada de modo muito simples. Basta executar o script `shell` de instalação disponibilizado no site oficial do Starship com o seguinte comando
 
 ```
-ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme
+$ curl -sS https://starship.rs/install.sh | sh
+```
+Após isso, basta inicializar o tema com o seguinte comando
+
+```
+$ eval "$(starship init zsh)"
 ```
 
-Da mesma forma que com os plugins, também é preciso ativar o tema acessando o arquivo `.zshrc` alterando o atribut `ZSH_THEME` para spaceship conforme abaixo
+### Firacode font
+
+Pode ser que alguns dos ícones não sejam redenrizados em seu terminal. E caso tenha esse problema você pode instalar a fonte `firacode` com o seguinte comando
 
 ```
-ZSH_THEME="spaceship"
+$ sudo apt install -y fonts-firacode
 ```
 
 ## Referências
@@ -83,3 +84,4 @@ ZSH_THEME="spaceship"
 - https://github.com/ohmyzsh/ohmyzsh/wiki/Settings
 - https://gist.github.com/dogrocker/1efb8fd9427779c827058f873b94df95
 - https://github.com/spaceship-prompt/spaceship-prompt
+- https://github.com/tonsky/FiraCode
