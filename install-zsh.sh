@@ -1,7 +1,7 @@
 #!/bin/bash
 
 printf "\n[INF] Installing ZSH...\n"
-cd ~ && sudo apt update && sudo apt install -y zsh
+cd ~ && apt update && apt install -y zsh
 
 printf "\n[INF] Installing oh-my-zsh framework...\n"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -27,7 +27,7 @@ curl -sS https://starship.rs/install.sh | sh
 eval "$(starship init zsh)"
 
 printf "\n[INF] Installing firacode font...\n"
-sudo apt install -y fonts-firacode
+apt install -y fonts-firacode
 
 # spaceship theme in case you want to install it
 # cloning the spaceship theme
