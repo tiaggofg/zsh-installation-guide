@@ -5,7 +5,7 @@ O Z-Shell muito conhecido como ZSH é um interpretador de comandos UNIX que ofer
 Para economizar tempo durante a instalação e configuração, fiz um script shell para instalar o `zsh` e o framework `oh-my-zsh` assim como alguns plugins. O script também irá realizar a instalação do tema Starship e da fonte firacode. Para executar o script basta clonar esse repositório e executar o arquivo `install-zsh.sh` conforme abaixo.
 
 ```shell
-$ sudo ./install-zsh.sh
+curl -sS https://raw.githubusercontent.com/tiaggofg/zsh-installation-guide/main/install-zsh.sh | sh
 ```
 
 Caso queira realizar o processo de instalação manualmente basta seguir os seguintes passos
